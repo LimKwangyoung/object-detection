@@ -18,11 +18,12 @@ while True:
     if not ret:
         break
 
+    # resize image by 224x224
     image_resized = cv2.resize(image, (224, 224), interpolation=cv2.INTER_AREA)
     cv2.imshow('Webcam Image', image_resized)
 
     image_array = (np.asarray(image_resized, dtype=np.float32).reshape(1, 224, 224, 3) / 127.5) - 1
-ㅁ
+
     # predict
     prediction = model.predict(image_array)
     index = np.argmax(prediction)
