@@ -116,7 +116,7 @@ def main():
         '--model',
         help='Path of the object detection model.',
         required=False,
-        default='efficientdet_lite0.tflite'
+        default='models/efficientdet_lite0.tflite'
     )
 
     parser.add_argument(
