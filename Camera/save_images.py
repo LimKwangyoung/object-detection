@@ -9,8 +9,7 @@ os.makedirs('images/4', exist_ok=True)
 
 img1_cnt = img2_cnt = img3_cnt = img4_cnt = 0
 
-# 0: rear camera, 1: front camera
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
     exit()

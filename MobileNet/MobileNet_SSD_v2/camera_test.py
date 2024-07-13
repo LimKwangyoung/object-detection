@@ -25,8 +25,7 @@ class_names = {
 model = cv2.dnn.readNetFromTensorflow('models/frozen_inference_graph.pb',
                                       'models/ssd_mobilenet_v2_coco_2018_03_29.pbtxt')
 
-# 0: rear camera, 1: front camera
-camera = cv2.VideoCapture(1)
+camera = cv2.VideoCapture(0)
 camera.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 camera.set(cv2.CAP_PROP_FRAME_WIDTH, 480)
 

@@ -1,7 +1,6 @@
 import cv2
 
-# 0: rear camera, 1: front camera
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
     exit()
