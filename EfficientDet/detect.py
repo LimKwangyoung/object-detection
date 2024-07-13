@@ -57,17 +57,19 @@ def run(model: str, max_results: int, score_threshold: float,  camera_id: int, w
 
     # initialize the object detection model
     base_options = python.BaseOptions(model_asset_path=model)
-    options = vision.ObjectDetectorOptions(base_options=base_options,
-                                           running_mode=vision.RunningMode.LIVE_STREAM,
-                                           max_results=max_results,
-                                           score_threshold=score_threshold,
-                                           result_callback=save_result)
+    options = vision.ObjectDetectorOptions(
+        base_options=base_options,
+        running_mode=vision.RunningMode.LIVE_STREAM,
+        max_results=max_results,
+        score_threshold=score_threshold,
+        result_callback=save_result
+    )
     detector = vision.ObjectDetector.create_from_options(options)
 
     # continuously capture images from the camera and run inference
     while cap.isOpened():
         success, image = cap.read()
-        image=cv2.resize(image,(640,480))
+        image = cv2.resize(image, (640, 480))
         if not success:
             sys.exit(
                 'ERROR: Unable to read from webcam. Please verify your webcam settings.'
@@ -150,9 +152,9 @@ def main():
     parser.add_argument(
         '--frameHeight',
         help='Height of frame to capture from camera.',
-          required=False,
-          type=int,
-          default=480
+        required=False,
+        type=int,
+        default=480
     )
 
     args = parser.parse_args()
